@@ -1,0 +1,29 @@
+# Build artifacts
+/target/
+**/*.rs.bk
+*.pdb
+
+# Cargo lock file (for libraries, comment out if this is a binary)
+# Cargo.lock
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+.env
+.env.local
+
+# Output files
+*.log
+
+# Test coverage
+*.profdata
+*.profraw
+
+# Documentation build
+/doc/
