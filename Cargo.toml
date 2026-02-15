@@ -2,7 +2,7 @@
 name = "btc-address-tools"
 version = "1.0.0"
 edition = "2021"
-authors = ["Your Name"]
+authors = ["Salugu Harshita Bhanu"]
 description = "Comprehensive Bitcoin address toolkit: validator, HD wallet generator, and educational tool"
 license = "MIT"
 

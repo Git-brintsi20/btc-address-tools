@@ -26,7 +26,7 @@ This project adheres to a code of conduct emphasizing:
 1. **Fork the repository**
 2. **Clone your fork**
    ```bash
-   git clone https://github.com/yourusername/btc-address-tools.git
+   git clone https://github.com/Git-brintsi20/btc-address-tools.git
    cd btc-address-tools
    ```
 3. **Build the project**
@@ -353,7 +353,7 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ```bash
 # 1. Fork and clone
-git clone https://github.com/yourusername/btc-address-tools.git
+git clone https://github.com/Git-brintsi20/btc-address-tools.git
 
 # 2. Create branch
 git checkout -b feature/my-feature

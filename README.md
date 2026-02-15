@@ -1,23 +1,22 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yourusername/btc-address-tools/main/assets/banner.png" alt="BTC Address Tools Banner" width="800"/>
-  <br/>
-  <h1>Bitcoin Address Toolkit</h1>
+  <h1>₿ Bitcoin Address Toolkit</h1>
   <p>
-    <strong>A comprehensive, educational command-line toolkit for exploring Bitcoin addresses, HD wallets, and cryptographic principles. Built with Rust for safety and performance.</strong>
+    <strong>A comprehensive, educational CLI &amp; web toolkit for exploring Bitcoin addresses, HD wallets, and cryptographic principles.<br/>Built with Rust for safety and performance.</strong>
   </p>
   <p>
-    <a href="https://github.com/yourusername/btc-address-tools/actions/workflows/rust.yml">
-      <img src="https://github.com/yourusername/btc-address-tools/actions/workflows/rust.yml/badge.svg" alt="Build Status">
-    </a>
     <a href="https://www.rust-lang.org/">
-      <img src="https://img.shields.io/badge/rust-1.70%2B-orange.svg" alt="Rust Version">
+      <img src="https://img.shields.io/badge/Rust-2021_Edition-orange?logo=rust&logoColor=white" alt="Rust">
     </a>
     <a href="LICENSE">
       <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
     </a>
-     <a href="https://crates.io/crates/btc-address-tools">
-      <img src="https://img.shields.io/crates/v/btc-address-tools.svg" alt="Crates.io">
+    <a href="https://img.shields.io/badge/Bitcoin-Education-f7931a?logo=bitcoin&logoColor=white">
+      <img src="https://img.shields.io/badge/Bitcoin-Education-f7931a?logo=bitcoin&logoColor=white" alt="Bitcoin Education">
     </a>
+  </p>
+  <p>
+    <a href="https://btc-address-tools.vercel.app"><strong>🌐 Live Demo</strong></a> &nbsp;·&nbsp;
+    <a href="https://github.com/Git-brintsi20/btc-address-tools"><strong>GitHub</strong></a>
   </p>
 </div>
 
@@ -38,7 +37,7 @@ The best way to understand Bitcoin is to build with it. This tool was created wi
 ---
 
 ## ✨ Features Overview
-This toolkit provides a suite of commands to demystify Bitcoin addresses and wallets.
+This toolkit provides a suite of commands to demystify Bitcoin addresses and wallets — available as both a **native CLI** and a **web interface**.
 
 | Feature | Description | Supported Standards |
 |---|---|---|
@@ -48,22 +47,18 @@ This toolkit provides a suite of commands to demystify Bitcoin addresses and wal
 | 🔄 **Format Converter** | Convert public keys into all corresponding address formats. | P2PKH, P2SH, P2WPKH, P2TR |
 | ✨ **Example Generator** | Quickly generate sample data like public keys for testing. | N/A |
 | 📚 **Educational Mode** | An interactive, step-by-step guide to creating a Bitcoin address from scratch. | Core crypto principles |
+| 🌐 **Web Interface** | All core tools accessible from your browser — no install needed. | [Try it live →](https://btc-address-tools.vercel.app) |
 
 ---
 
-## 🎬 Interactive Demo
-The best way to experience the toolkit is through its interactive mode.
+## 🌐 Web App
+> **Try it now:** [btc-address-tools.vercel.app](https://btc-address-tools.vercel.app)
 
-*(This is a placeholder. You can record a terminal session and convert it to a GIF using tools like `asciinema` and `agg`.)*
-![BTC Address Tools Demo GIF](https://raw.githubusercontent.com/yourusername/btc-address-tools/main/assets/demo.gif)
-
-```bash
-btc-tools interactive
-```
+The web interface provides all core tools (Validate, Generate, Convert, Learn) directly in the browser with a beautiful dark UI. It uses **pure JavaScript** with zero external dependencies — all Bitcoin crypto (SHA-256, RIPEMD-160, Base58Check, Bech32/Bech32m) is implemented from scratch for educational transparency.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started (CLI)
 
 ### Prerequisites
 - [Rust 1.70+](https://www.rust-lang.org/tools/install)
@@ -72,7 +67,7 @@ btc-tools interactive
 ### Installation & Build
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/btc-address-tools.git
+git clone https://github.com/Git-brintsi20/btc-address-tools.git
 cd btc-address-tools
 
 # 2. Build the project in release mode
