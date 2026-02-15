@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Address Tools — Summer of Bitcoin</title>
+    <meta name="description" content="A comprehensive, educational Bitcoin address toolkit. Validate addresses, generate HD wallets, convert formats, and learn Bitcoin cryptography.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>₿</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-badge">🧡 Summer of Bitcoin Project</div>
+            <h1>Bitcoin Address <span class="gradient-text">Toolkit</span></h1>
+            <p class="hero-subtitle">
+                A comprehensive, educational command-line &amp; web toolkit for exploring Bitcoin addresses,
+                HD wallets, and cryptographic principles. <strong>Built with Rust.</strong>
+            </p>
+            <div class="hero-badges">
+                <img src="https://img.shields.io/badge/Rust-2021_Edition-orange?logo=rust&logoColor=white" alt="Rust">
+                <img src="https://img.shields.io/badge/License-MIT-blue" alt="MIT License">
+                <img src="https://img.shields.io/badge/Bitcoin-Education-f7931a?logo=bitcoin&logoColor=white" alt="Bitcoin">
+            </div>
+            <div class="hero-cta">
+                <a href="#tools" class="btn btn-primary">Try It Now</a>
+                <a href="https://github.com/AaravAtGit/btc-address-tools" class="btn btn-secondary" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECURITY WARNING -->
+    <section class="warning-bar">
+        <div class="container">
+            <span>⚠️</span> <strong>Educational Purposes Only</strong> — Never use generated keys for real funds. Use hardware wallets for actual Bitcoin storage.
+        </div>
+    </section>
+
+    <!-- TOOLS SECTION -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <h2 class="section-title">Interactive Tools</h2>
+            <p class="section-subtitle">Explore Bitcoin address mechanics right in your browser.</p>
+
+            <!-- TAB NAV -->
+            <div class="tab-nav" role="tablist">
+                <button class="tab active" data-tab="validate" role="tab" aria-selected="true">
+                    <span class="tab-icon">🔍</span> Validate
+                </button>
+                <button class="tab" data-tab="generate" role="tab" aria-selected="false">
+                    <span class="tab-icon">🎲</span> Generate Wallet
+                </button>
+                <button class="tab" data-tab="convert" role="tab" aria-selected="false">
+                    <span class="tab-icon">🔄</span> Convert
+                </button>
+                <button class="tab" data-tab="learn" role="tab" aria-selected="false">
+                    <span class="tab-icon">📚</span> Learn
+                </button>
+            </div>
+
+            <!-- VALIDATE TAB -->
+            <div class="tab-content active" id="tab-validate">
+                <div class="tool-card">
+                    <h3>🔍 Address Validator</h3>
+                    <p>Enter any Bitcoin address to validate it and see a detailed breakdown of its type, network, and script.</p>
+                    <div class="input-group">
+                        <input type="text" id="validate-input" placeholder="e.g. bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq" spellcheck="false">
+                        <button class="btn btn-primary" id="validate-btn">Validate</button>
+                    </div>
+                    <div class="quick-examples">
+                        <span>Try:</span>
+                        <button class="example-btn" data-value="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa">P2PKH (Satoshi)</button>
+                        <button class="example-btn" data-value="3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy">P2SH</button>
+                        <button class="example-btn" data-value="bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq">SegWit</button>
+                        <button class="example-btn" data-value="bc1p5d7rjq7g6rdk2yhzks9smlaqtedr4dekq08ge8ztwac72sfr9rusxg3297">Taproot</button>
+                    </div>
+                    <div class="result-area" id="validate-result"></div>
+                </div>
+            </div>
+
+            <!-- GENERATE TAB -->
+            <div class="tab-content" id="tab-generate">
+                <div class="tool-card">
+                    <h3>🎲 HD Wallet Generator</h3>
+                    <p>Generate a new BIP39-compliant HD wallet with a mnemonic phrase. This runs entirely in your browser — no data is sent to any server.</p>
+                    <div class="input-row">
+                        <div class="select-group">
+                            <label for="word-count">Mnemonic Words</label>
+                            <select id="word-count">
+                                <option value="12" selected>12 words</option>
+                                <option value="15">15 words</option>
+                                <option value="18">18 words</option>
+                                <option value="21">21 words</option>
+                                <option value="24">24 words</option>
+                            </select>
+                        </div>
+                        <div class="select-group">
+                            <label for="wallet-network">Network</label>
+                            <select id="wallet-network">
+                                <option value="mainnet" selected>Mainnet</option>
+                                <option value="testnet">Testnet</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="generate-btn">Generate Wallet</button>
+                    </div>
+                    <div class="result-area" id="generate-result"></div>
+                </div>
+            </div>
+
+            <!-- CONVERT TAB -->
+            <div class="tab-content" id="tab-convert">
+                <div class="tool-card">
+                    <h3>🔄 Format Converter</h3>
+                    <p>Convert a compressed public key (hex) into all Bitcoin address formats: Legacy, P2SH-SegWit, Native SegWit, and Taproot.</p>
+                    <div class="input-group">
+                        <input type="text" id="convert-input" placeholder="Enter a compressed public key in hex (66 chars, starts with 02 or 03)" spellcheck="false">
+                        <button class="btn btn-primary" id="convert-btn">Convert</button>
+                    </div>
+                    <div class="quick-examples">
+                        <span>Try:</span>
+                        <button class="example-btn convert-example" data-value="0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798">Generator Point G</button>
+                        <button class="example-btn convert-example" data-value="02c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5">Example Key</button>
+                    </div>
+                    <div class="result-area" id="convert-result"></div>
+                </div>
+            </div>
+
+            <!-- LEARN TAB -->
+            <div class="tab-content" id="tab-learn">
+                <div class="tool-card learn-card">
+                    <h3>📚 How Bitcoin Addresses Work</h3>
+                    <div class="learn-steps">
+                        <div class="learn-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Private Key Generation</h4>
+                                <p>A 256-bit random number is generated. This is your <strong>private key</strong> — a secret number that proves ownership.</p>
+                                <div class="step-visual">
+                                    <code>e.g. e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="learn-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Public Key Derivation (ECDSA on secp256k1)</h4>
+                                <p>The private key is multiplied by the <strong>Generator Point G</strong> on the secp256k1 elliptic curve to produce a public key. This is a one-way operation — you cannot reverse it.</p>
+                                <div class="step-visual">
+                                    <code>Public Key = Private Key × G</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="learn-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Hashing (SHA-256 + RIPEMD-160)</h4>
+                                <p>The public key is first hashed with <strong>SHA-256</strong>, then the result is hashed again with <strong>RIPEMD-160</strong>, creating a 20-byte hash called the <strong>Public Key Hash (Hash160)</strong>.</p>
+                                <div class="step-visual">
+                                    <code>Hash160 = RIPEMD160(SHA256(public_key))</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="learn-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Address Encoding</h4>
+                                <p>The hash is then encoded using <strong>Base58Check</strong> (for legacy P2PKH) or <strong>Bech32/Bech32m</strong> (for SegWit/Taproot) to produce the final human-readable address.</p>
+                                <div class="step-visual address-types">
+                                    <div><strong>P2PKH:</strong> <code>1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</code></div>
+                                    <div><strong>P2WPKH:</strong> <code>bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4</code></div>
+                                    <div><strong>P2TR:</strong> <code>bc1p0xlxvlhemja6c4dqv22uapctqupfhlxm9h8z3...</code></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top:2.5rem">🎓 Derivation Paths (BIP44)</h3>
+                    <p>HD wallets use a hierarchical path: <code>m / purpose' / coin_type' / account' / change / address_index</code></p>
+                    <table class="info-table">
+                        <thead>
+                            <tr><th>Component</th><th>Description</th><th>Bitcoin Value</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>m</code></td><td>Master key</td><td><code>m</code></td></tr>
+                            <tr><td><code>purpose'</code></td><td>Standard used</td><td><code>44'</code> (BIP44)</td></tr>
+                            <tr><td><code>coin_type'</code></td><td>Cryptocurrency</td><td><code>0'</code> (Mainnet), <code>1'</code> (Testnet)</td></tr>
+                            <tr><td><code>account'</code></td><td>Account index</td><td><code>0'</code></td></tr>
+                            <tr><td><code>change</code></td><td>Receiving/Change</td><td><code>0</code> / <code>1</code></td></tr>
+                            <tr><td><code>address_index</code></td><td>Address number</td><td><code>0, 1, 2, ...</code></td></tr>
+                        </tbody>
+                    </table>
+                    <p class="example-path"><strong>Example:</strong> <code>m/44'/0'/0'/0/5</code> → 6th receiving address of the first mainnet account.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Built With</h2>
+            <p class="section-subtitle">A deep dive into Bitcoin's foundations, powered by Rust's safety and performance.</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🦀</div>
+                    <h4>Rust</h4>
+                    <p>Written in 100% safe Rust (2021 edition). Memory-safe by design, with zero runtime overhead.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">₿</div>
+                    <h4>bitcoin crate</h4>
+                    <p>Uses the official <code>rust-bitcoin</code> library (v0.31) for all core data structures and encoding.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h4>secp256k1</h4>
+                    <p>Leverages the <code>secp256k1</code> crate (v0.28) for fast, correct elliptic curve cryptography.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h4>BIP39</h4>
+                    <p>Full BIP39 mnemonic generation and recovery with 12-24 word support via the <code>bip39</code> crate.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖥️</div>
+                    <h4>CLI + Web</h4>
+                    <p>Both a full-featured interactive CLI and this web interface for maximum accessibility.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h4>Educational</h4>
+                    <p>Every output is designed to teach. Step-by-step breakdowns of Bitcoin address creation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLI DEMO -->
+    <section class="cli-section">
+        <div class="container">
+            <h2 class="section-title">Command-Line Interface</h2>
+            <p class="section-subtitle">The full toolkit is also available as a native CLI for maximum speed.</p>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">btc-tools</span>
+                </div>
+                <div class="terminal-body">
+<pre>
+<span class="t-prompt">$</span> <span class="t-cmd">btc-tools validate</span> bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq
+
+<span class="t-bar">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
+  <span class="t-title">🔍 VALIDATING BITCOIN ADDRESS</span>
+<span class="t-bar">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
+
+<span class="t-success">✅ VALID ADDRESS</span>
+
+  <span class="t-label">Address:</span>  bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq
+  <span class="t-label">Type:</span>     <span class="t-yellow">Native SegWit (P2WPKH)</span>
+  <span class="t-label">Network:</span>  Bitcoin Mainnet
+
+  <span class="t-title">📋 Technical Details:</span>
+  <span class="t-label">Script Type:</span>   Witness V0 Key Hash
+  <span class="t-label">Script Length:</span> 22 bytes
+
+  <span class="t-title">💡 Characteristics:</span>
+  <span class="t-dim">• Bech32 encoding (lowercase)</span>
+  <span class="t-dim">• Efficient fees (~38% savings vs P2PKH)</span>
+  <span class="t-dim">• Native SegWit support</span>
+</pre>
+                </div>
+            </div>
+            <div class="install-cmd">
+                <span>Install with Cargo:</span>
+                <code>git clone https://github.com/AaravAtGit/btc-address-tools.git && cd btc-address-tools && cargo build --release</code>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <strong>Bitcoin Address Toolkit</strong> — A Summer of Bitcoin Project
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/AaravAtGit/btc-address-tools" target="_blank" rel="noopener">GitHub</a>
+                    <span>•</span>
+                    <a href="https://github.com/AaravAtGit/btc-address-tools/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+                    <span>•</span>
+                    <a href="https://www.summerofbitcoin.org/" target="_blank" rel="noopener">Summer of Bitcoin</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="bitcoin.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

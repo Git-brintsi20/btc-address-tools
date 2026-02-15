@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yourusername/btc-address-tools/main/assets/banner.png" alt="BTC Address Tools Banner">
+  <img src="https://raw.githubusercontent.com/yourusername/btc-address-tools/main/assets/banner.png" alt="BTC Address Tools Banner" width="800"/>
+  <br/>
   <h1>Bitcoin Address Toolkit</h1>
   <p>
     <strong>A comprehensive, educational command-line toolkit for exploring Bitcoin addresses, HD wallets, and cryptographic principles. Built with Rust for safety and performance.</strong>
@@ -14,6 +15,9 @@
     <a href="LICENSE">
       <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
     </a>
+     <a href="https://crates.io/crates/btc-address-tools">
+      <img src="https://img.shields.io/crates/v/btc-address-tools.svg" alt="Crates.io">
+    </a>
   </p>
 </div>
 
@@ -21,6 +25,9 @@
 
 ## 🧡 A Summer of Bitcoin Project
 This toolkit was developed as a learning exercise to deeply understand the mechanics of Bitcoin addresses and wallets. It serves as a practical, hands-on educational resource for anyone interested in the technical foundations of Bitcoin, making it a perfect companion for aspiring Bitcoin developers.
+
+### Core Philosophy: Learn by Doing
+The best way to understand Bitcoin is to build with it. This tool was created with an educational-first mindset. Every feature, from the detailed validation output to the step-by-step `learn` command, is designed to demystify the "magic" behind Bitcoin's cryptographic foundations. It encourages exploration and provides a safe environment to experiment with concepts that are often theoretical.
 
 ## ⚠️ Security Warning
 **FOR EDUCATIONAL PURPOSES ONLY.** This tool is designed for learning and experimentation on Bitcoin's mainnet and testnet.
